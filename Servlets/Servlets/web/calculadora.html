@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Calculadora con Servlet</title>
+    </head>
+    
+    <body>
+        <script>
+            function soloEnteros(){
+    var numeros="0123456789";
+    var num = event.keyCode;
+    var numero = String.fromCharCode(num);
+    var existe = numeros.indexOf(numero);
+    if(existe === -1)
+        event.returnValue=false;
+}
+
+function vacios(dal){
+    valor=parseInt(dal.value);
+    if((isNaN(valor))){
+        alert("Tiene que llenar todos los campos");
+        dal.focus();
+        return false;
+    }
+}
+function sololetras(){
+    var numeros="+-*/loglog10sincostan";
+    var num = event.keyCode;
+    var numero = String.fromCharCode(num);
+    var existe = numeros.indexOf(numero);
+    if(existe === -1)
+        event.returnValue=false;
+}       </script>
+        
+        <h2>Calculadora con Servlet</h2>
+        <form method="POST" action='ServletCalcu'>
+            <BR>
+            <BR>
+            <center>
+                Introduzca el o los n&uacute;meros, la operaci&oacute;n y pulse el bot&oacute;n de enviar<BR>
+                <BR><input type="number" name=n1 onkeypress="return vacios()"> &nbsp; <input type="text" name="operacion" onkeypress="return sololetras()"> &nbsp; <input type="number" name="n2">
+                <BR>
+                <BR><input type=submit value="Enviar operaci&oacute;n">
+                <input type=reset value="Borrar">
+            </center>
+        </form>
+    </body>
+</html>
+
